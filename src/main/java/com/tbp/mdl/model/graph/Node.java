@@ -164,13 +164,13 @@ public class Node extends Identifiable<Long> {
     void setMetricDescription(String metric, Double q1, Double median, Double q3) {
         String desc = Q1;
         Double value = getMetricValue(metric);
-        if(q1 < value && value <= median) {
+        if(q1 < value && value < median) {
             desc = Q1_MEDIAN;
         }
-        if(median < value && value <= q3) {
+        if(median <= value && value < q3) {
             desc = MEDIAN_Q3;
         }
-        if(value > q3) {
+        if(value >= q3) {
             desc = Q3;
         }
         setMetricDescription(metric, desc);
