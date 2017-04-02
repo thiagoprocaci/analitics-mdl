@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="vendor/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+
+</div>
+
+</body>
+
+<script src="app.js" ></script>
+<script src="service/courseService.js" ></script>
+<script src="controller/appcontroller.js" ></script>
+
+</html>
