@@ -164,7 +164,7 @@ public class Node extends Identifiable<Long> {
     void setMetricDescription(String metric, Double q1, Double median, Double q3) {
         String desc = Q1;
         Double value = getMetricValue(metric);
-        if(value.equals(q1)) {
+        if(value == null || value.equals(q1)) {
             desc = Q1;
         } else if(q1 < value && value < median) {
             desc = Q1_MEDIAN;

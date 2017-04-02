@@ -1,6 +1,7 @@
 package com.tbp.mdl.model.graph;
 
 import com.tbp.mdl.model.graph.stats.NodeMetrics;
+import com.tbp.mdl.model.graph.stats.NodeMetricsFactory;
 import com.tbp.mdl.model.moodle.Course;
 
 
@@ -11,11 +12,13 @@ public class GraphDto {
     Course course;
     Collection<Node> nodes;
     Collection<Edge> edges;
+    NodeMetricsFactory nodeMetricsFactory;
 
     public GraphDto(Graph graph, Course course) {
         nodes = graph.nodeMap.values();
         edges = graph.edgeMap.values();
         this.course = course;
+        this.nodeMetricsFactory = new NodeMetricsFactory();
         calcNodeDesc();
     }
 
@@ -31,8 +34,8 @@ public class GraphDto {
         return edges;
     }
 
-    private void calcNodeDesc() {
-        NodeMetrics nodeMetrics = new NodeMetrics(nodes);
+    void calcNodeDesc() {
+        NodeMetrics nodeMetrics = nodeMetricsFactory.create(nodes);
         for (Node n: nodes) {
             n.setMetricDescription(Node.BETWEENNESS, nodeMetrics.getQ1Betweenness(), nodeMetrics.getMedianBetweenness(), nodeMetrics.getQ3Betweenness());
             n.setMetricDescription(Node.CLOSENESS, nodeMetrics.getQ1Closeness(), nodeMetrics.getMedianCloseness(), nodeMetrics.getQ3Closeness());

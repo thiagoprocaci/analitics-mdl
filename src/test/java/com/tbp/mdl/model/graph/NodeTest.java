@@ -30,6 +30,10 @@ public class NodeTest {
         node.setMetricDescription(metric, q1, median, q3);
         assertEquals(Node.Q1, node.getBetweennessDesc());
 
+        node.setBetweenness(null);
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1, node.getBetweennessDesc());
+
     }
 
     @Test

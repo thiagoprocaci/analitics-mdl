@@ -2,13 +2,7 @@ package com.tbp.mdl.model.graph.stats;
 
 
 import com.tbp.mdl.model.graph.Node;
-import org.apache.commons.math3.exception.MathIllegalArgumentException;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
-import org.apache.commons.math3.stat.descriptive.rank.Percentile;
-import org.apache.commons.math3.stat.ranking.NaNStrategy;
-import org.apache.commons.math3.util.KthSelector;
-import org.apache.commons.math3.util.MedianOf3PivotingStrategy;
-
 import java.util.Collection;
 
 public class NodeMetrics {
