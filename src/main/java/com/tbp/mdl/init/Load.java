@@ -3,6 +3,7 @@ package com.tbp.mdl.init;
 import com.tbp.mdl.model.moodle.*;
 import com.tbp.mdl.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 import java.util.UUID;
 
 @Component
+@Profile("h2")
 public class Load {
 
 
