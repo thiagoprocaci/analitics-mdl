@@ -17,6 +17,22 @@ public class NodeTest {
     Double eigenvector = 9d;
 
     @Test
+    public void testSetMetricDesc() {
+        Node node = new Node(1L);
+
+        String metric = Node.BETWEENNESS;
+        Double q1 =  0d;
+        Double median = 0d;
+        Double q3 = 0d;
+
+
+        node.setBetweenness(0d);
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1, node.getBetweennessDesc());
+
+    }
+
+    @Test
     public void testSetMetricDescBetweenness() {
         Node node = new Node(1L);
 

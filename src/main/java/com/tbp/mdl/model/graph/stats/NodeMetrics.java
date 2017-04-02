@@ -2,7 +2,12 @@ package com.tbp.mdl.model.graph.stats;
 
 
 import com.tbp.mdl.model.graph.Node;
+import org.apache.commons.math3.exception.MathIllegalArgumentException;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.rank.Percentile;
+import org.apache.commons.math3.stat.ranking.NaNStrategy;
+import org.apache.commons.math3.util.KthSelector;
+import org.apache.commons.math3.util.MedianOf3PivotingStrategy;
 
 import java.util.Collection;
 
@@ -39,15 +44,33 @@ public class NodeMetrics {
             init(nodes);
             int i = 0;
             for(Node n: nodes) {
-                betweennessList[i] = n.getBetweenness();
-                closenessList[i] = n.getCloseness();
-                eccentricityList[i] = n.getEccentricity();
-                harmonicClosenessList[i] = n.getHarmonicCloseness();
-                pageRankList[i] = n.getPageRank();
-                indegreeList[i] = n.getIndegree();
-                outdegreeList[i] = n.getOutdegree();
-                degreeList[i] = n.getDegree();
-                eigenvectorList[i] = n.getEigenvector();
+                if(n.getBetweenness() != null) {
+                    betweennessList[i] = n.getBetweenness();
+                }
+                if(n.getCloseness() != null) {
+                    closenessList[i] = n.getCloseness();
+                }
+                if(n.getEccentricity() != null) {
+                    eccentricityList[i] = n.getEccentricity();
+                }
+                if(n.getHarmonicCloseness() != null) {
+                    harmonicClosenessList[i] = n.getHarmonicCloseness();
+                }
+                if(n.getPageRank() != null) {
+                    pageRankList[i] = n.getPageRank();
+                }
+                if(n.getIndegree() != null) {
+                    indegreeList[i] = n.getIndegree();
+                }
+                if(n.getOutdegree() != null) {
+                    outdegreeList[i] = n.getOutdegree();
+                }
+                if(n.getDegree() != null) {
+                    degreeList[i] = n.getDegree();
+                }
+                if(n.getEigenvector() != null) {
+                    eigenvectorList[i] = n.getEigenvector();
+                }
                 i++;
             }
 
@@ -230,4 +253,6 @@ public class NodeMetrics {
     public Double getQ3Eigenvector() {
         return q3Eigenvector;
     }
+
+
 }
