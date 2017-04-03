@@ -10,20 +10,29 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="node_modules/angular-bootstrap-npm/dist/angular-bootstrap.min.js"></script>
 <script src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
+<script src="node_modules/angular-route/angular-route.min.js"></script>
 
 
 <body>
 
     <div ng-app="app" ng-controller="appCtrl">
-        <div class="gridStyle" ui-grid="gridOptions" ></div>
-
+        <div ng-include src="'modules/menu/menu.html'"></div>
+        <br><br><br>
+        <div >
+            <div style="width:50%">
+                <div class="grid" ui-grid="gridOptions" ui-grid-pagination ></div>
+            </div>
+            <div style="width:50%">
+                <div class="grid" ui-grid="gridOptions" ui-grid-pagination ></div>
+            </div>
+        </div>
     </div>
 </body>
 
-<script src="js/app.js"></script>
-<script src="js/controller/appCtrl.js"></script>
-<script src="js/service/courseService.js"></script>
-<script src="js/service/analysisService.js"></script>
+<script src="modules/config/app.js"></script>
+<script src="modules/main/appCtrl.js"></script>
+<script src="modules/main/courseService.js"></script>
+<script src="modules/main/analysisService.js"></script>
 
 
 </html>

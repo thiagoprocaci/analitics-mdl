@@ -1,6 +1,8 @@
 app.controller('appCtrl', function($scope, courseService, analysisService) {
 
     $scope.gridOptions = {
+        paginationPageSizes: [25, 50, 75],
+        paginationPageSize: 25,
         columnDefs: [
           {field: 'id', displayName: 'Id'},
           {field: 'shortName', displayName: 'Name'} ,
