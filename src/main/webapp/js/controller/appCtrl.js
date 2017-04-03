@@ -1,4 +1,4 @@
-app.controller('appCtrl', function($scope, courseService) {
+app.controller('appCtrl', function($scope, courseService, analysisService) {
 
     $scope.gridOptions = {
         columnDefs: [
@@ -19,8 +19,10 @@ app.controller('appCtrl', function($scope, courseService) {
      };
 
     $scope.analysis = function(courseId) {
-        console.log(courseId)
+        analysisService.perform(courseId)
+                    .then(function sucesso(response) {
+                        console.log(response.data)
+                    });
     };
-
     $scope.findAll();
 });
