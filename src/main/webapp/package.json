@@ -8,7 +8,8 @@
     "angular-touch" : "1.6.1",
     "bootstrap" : "3.3.7",
     "jquery" : "3.2.1",
-    "angular-bootstrap-npm" : "0.14.3"
+    "angular-bootstrap-npm" : "0.14.3",
+    "angular-ui-grid": "4.0.3"
   },
   "author": "",
   "license": "ISC"

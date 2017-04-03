@@ -2,27 +2,22 @@
 <html lang="en-US">
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.min.css">
 
 <script src="node_modules/angular/angular.min.js"></script>
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="node_modules/angular-bootstrap-npm/dist/angular-bootstrap.min.js"></script>
+<script src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
 
 
 <body>
 
     <div ng-app="app" ng-controller="appCtrl">
-
-        Course List
-        <ul ng-repeat="course in courseList">
-            <li>
-                {{course.shortName}}
-            </li>
-        </ul>
+        <div class="gridStyle" ui-grid="gridOptions" ></div>
 
     </div>
-
 </body>
 
 <script src="js/app.js"></script>
