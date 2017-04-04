@@ -6,10 +6,10 @@ import com.tbp.mdl.model.support.Identifiable;
 
 public class Node extends Identifiable<Long> {
 
-    static final String Q1 = "q1";
-    static final String Q1_MEDIAN = "q1-median";
-    static final String MEDIAN_Q3 = "median-q3";
-    static final String Q3 = "q3";
+    static final String Q1 = "Bad";
+    static final String Q1_MEDIAN = "Ok";
+    static final String MEDIAN_Q3 = "Good";
+    static final String Q3 = "Excellent";
     static final String BETWEENNESS = "betweenness";
     static final String CLOSENESS = "closeness";
     static final String ECCENTRICITY = "eccentricity";
@@ -33,19 +33,30 @@ public class Node extends Identifiable<Long> {
 
     String betweennessDesc = Q1;
     String closenessDesc = Q1;
-    String eccentricityDesc = Q1;
-    String harmonicClosenessDesc = Q1;
     String pageRankDesc = Q1;
     String indegreeDesc = Q1;
     String outdegreeDesc = Q1;
     String degreeDesc = Q1;
     String eigenvectorDesc = Q1;
+    String eccentricityDesc = Q1;
+    String harmonicClosenessDesc = Q1;
+    String label;
+
 
     public Node(Long id) {
+        this(id, null);
+    }
+
+    public Node(Long id, String label) {
         if(id == null) {
             throw new IllegalArgumentException("Id should not be null.");
         }
         this.id = id;
+        this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
     }
 
     public String getBetweennessDesc() {

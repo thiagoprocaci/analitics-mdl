@@ -17,8 +17,12 @@ public class Graph {
     }
 
     public void addEdge(Long sourceId, Long destId) {
-        Node source = new Node(sourceId);
-        Node dest = new Node(destId);
+        addEdge(sourceId, null, destId, null);
+    }
+
+    public void addEdge(Long sourceId, String labelSource, Long destId, String labelDest) {
+        Node source = new Node(sourceId, labelSource);
+        Node dest = new Node(destId, labelDest);
         if(!nodeMap.containsKey(source.getId())) {
             nodeMap.put(source.getId(), source);
         } else {

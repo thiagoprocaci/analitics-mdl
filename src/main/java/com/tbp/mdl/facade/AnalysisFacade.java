@@ -33,7 +33,7 @@ public class AnalysisFacade {
             for(Post post : postList) {
                 if(post.getParentPost() != 0L) {
                     Post parent = postRepository.findOne(post.getParentPost());
-                    graph.addEdge(post.getUserId(), parent.getUserId());
+                    graph.addEdge(post.getUser().getId(), post.getUser().getFullName(), parent.getUser().getId(), parent.getUser().getFullName());
                 }
             }
             gephiFacade.executeAlgorithm(graph);

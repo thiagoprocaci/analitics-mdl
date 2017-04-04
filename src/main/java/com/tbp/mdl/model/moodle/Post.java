@@ -2,10 +2,7 @@ package com.tbp.mdl.model.moodle;
 
 import com.tbp.mdl.model.support.Identifiable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mdl_forum_posts")
@@ -17,8 +14,9 @@ public class Post extends Identifiable<Long> {
     Long parentPost;
     @Column(name = "discussion", updatable=false, insertable = false)
     Long discussionId;
-    @Column(name = "userid", updatable=false, insertable = false)
-    Long userId;
+    @ManyToOne
+    @JoinColumn(name = "userid", updatable=false, insertable = false)
+    User user;
 
     public Long getId() {
         return id;
@@ -32,7 +30,8 @@ public class Post extends Identifiable<Long> {
         return discussionId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
+
 }

@@ -36,4 +36,9 @@ public class User extends Identifiable<Long> {
     public String getLastName() {
         return lastName;
     }
+
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 }
