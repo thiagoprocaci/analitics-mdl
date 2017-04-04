@@ -1,4 +1,4 @@
-var app = angular.module("app", ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.pagination', 'ngRoute']);
+var app = angular.module("app", ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.pagination', 'ngRoute', 'ui.grid.selection']);
 
 
 // route

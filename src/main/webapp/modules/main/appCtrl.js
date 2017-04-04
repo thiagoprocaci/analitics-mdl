@@ -1,11 +1,16 @@
 app.controller('appCtrl', function($scope, courseService, analysisService) {
 
+    $scope.gridApi;
+
     $scope.gridCourseOptions = {
         paginationPageSizes: [25, 50, 75],
         paginationPageSize: 25,
         enableFiltering: true,
+        enableRowSelection: true,
+        multiSelect : false,
+        enableRowHeaderSelection: false,
         columnDefs: [
-          {field: 'fullName', displayName: 'Name', } ,
+          {field: 'fullName', displayName: 'Name', cellTooltip: true } ,
           { name: 'analysis',
             enableFiltering: false,
             displayName: 'Analysis',
@@ -20,7 +25,7 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
             paginationPageSizes: [25, 50, 75],
             paginationPageSize: 25,
             columnDefs: [
-              {field: 'label', displayName: 'Name'} ,
+              {field: 'label', displayName: 'Name', cellTooltip: true} ,
               {field: 'betweennessDesc', displayName: 'Betweenness'} ,
               {field: 'closenessDesc', displayName: 'Closeness'} ,
               {field: 'eccentricityDesc', displayName: 'Eccentricity'} ,
@@ -32,7 +37,6 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
               {field: 'eigenvectorDesc', displayName: 'Eigenvector'} ,
             ]
           };
-
 
     $scope.findAll = function() {
         courseService.findAll()
