@@ -35,6 +35,7 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
               {field: 'outdegreeDesc', displayName: 'Outdegree'} ,
               {field: 'degreeDesc', displayName: 'Degree'} ,
               {field: 'eigenvectorDesc', displayName: 'Eigenvector'} ,
+              {field: 'interactionsDesc', displayName: 'Participation'} ,
             ]
           };
 

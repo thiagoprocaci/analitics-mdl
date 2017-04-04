@@ -19,6 +19,7 @@ public class Node extends Identifiable<Long> {
     static final String OUTDEGREE = "outdegree";
     static final String DEGREE = "degree";
     static final String EIGENVECTOR = "eigenvector";
+    static final String INTERACTIONS = "interactions";
 
     Long id;
     Double betweenness;
@@ -40,7 +41,10 @@ public class Node extends Identifiable<Long> {
     String eigenvectorDesc = Q1;
     String eccentricityDesc = Q1;
     String harmonicClosenessDesc = Q1;
+    String interactionsDesc = Q1;
     String label;
+
+    Integer interactions = 0;
 
 
     public Node(Long id) {
@@ -57,6 +61,10 @@ public class Node extends Identifiable<Long> {
 
     public String getLabel() {
         return label;
+    }
+
+    public String getInteractionsDesc() {
+        return interactionsDesc;
     }
 
     public String getBetweennessDesc() {
@@ -216,6 +224,10 @@ public class Node extends Identifiable<Long> {
             case EIGENVECTOR:
                 eigenvectorDesc = desc;
                 break;
+            case INTERACTIONS:
+                interactionsDesc = desc;
+                break;
+
         }
     }
 
@@ -255,7 +267,20 @@ public class Node extends Identifiable<Long> {
             case EIGENVECTOR:
                 d = eigenvector;
                 break;
+            case INTERACTIONS:
+                if(interactions != null) {
+                    d = interactions.doubleValue();
+                    break;
+                }
         }
         return d;
+    }
+
+    public Integer getInteractions() {
+        return interactions;
+    }
+
+    public void increaseInteractions() {
+        interactions++;
     }
 }

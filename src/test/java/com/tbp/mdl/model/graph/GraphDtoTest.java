@@ -27,6 +27,11 @@ public class GraphDtoTest {
         assertTrue(graphDto.getNodes().contains(g.getNodeMap().get(2L)));
         assertEquals(1, graphDto.getEdges().size());
         assertTrue(graphDto.getEdges().contains(g.getEdgeMap().get("1_2")));
+
+        assertEquals(1, g.getNodeMap().get(1L).getInteractions().intValue());
+        assertEquals(1, g.getNodeMap().get(2L).getInteractions().intValue());
+
+
     }
 
     @Test
@@ -57,6 +62,7 @@ public class GraphDtoTest {
         verify(n).setMetricDescription(Node.OUTDEGREE, nodeMetrics.getQ1Outdegree(), nodeMetrics.getMedianOutdegree(), nodeMetrics.getQ3Outdegree());
         verify(n).setMetricDescription(Node.DEGREE, nodeMetrics.getQ1Degree(), nodeMetrics.getMedianDegree(), nodeMetrics.getQ3Degree());
         verify(n).setMetricDescription(Node.EIGENVECTOR, nodeMetrics.getQ1Eigenvector(), nodeMetrics.getMedianEigenvector(), nodeMetrics.getQ3Eigenvector());
+        verify(n).setMetricDescription(Node.INTERACTIONS, nodeMetrics.getQ1Interactions(), nodeMetrics.getMedianInteractions(), nodeMetrics.getQ3Interactions());
 
 
         verify(n2).setMetricDescription(Node.BETWEENNESS, nodeMetrics.getQ1Betweenness(), nodeMetrics.getMedianBetweenness(), nodeMetrics.getQ3Betweenness());
@@ -68,6 +74,7 @@ public class GraphDtoTest {
         verify(n2).setMetricDescription(Node.OUTDEGREE, nodeMetrics.getQ1Outdegree(), nodeMetrics.getMedianOutdegree(), nodeMetrics.getQ3Outdegree());
         verify(n2).setMetricDescription(Node.DEGREE, nodeMetrics.getQ1Degree(), nodeMetrics.getMedianDegree(), nodeMetrics.getQ3Degree());
         verify(n2).setMetricDescription(Node.EIGENVECTOR, nodeMetrics.getQ1Eigenvector(), nodeMetrics.getMedianEigenvector(), nodeMetrics.getQ3Eigenvector());
+        verify(n2).setMetricDescription(Node.INTERACTIONS, nodeMetrics.getQ1Interactions(), nodeMetrics.getMedianInteractions(), nodeMetrics.getQ3Interactions());
     }
 
     private NodeMetrics createNodeMetrics() {
@@ -107,6 +114,10 @@ public class GraphDtoTest {
         when(nodeMetrics.getQ1Eigenvector()).thenReturn(25d);
         when(nodeMetrics.getMedianEigenvector()).thenReturn(26d);
         when(nodeMetrics.getQ3Eigenvector()).thenReturn(27d);
+
+        when(nodeMetrics.getQ1Interactions()).thenReturn(28d);
+        when(nodeMetrics.getMedianInteractions()).thenReturn(29d);
+        when(nodeMetrics.getQ3Interactions()).thenReturn(30d);
 
         return nodeMetrics;
     }

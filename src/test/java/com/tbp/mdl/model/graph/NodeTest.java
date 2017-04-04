@@ -37,6 +37,49 @@ public class NodeTest {
     }
 
     @Test
+    public void testSetMetricDescInteractions() {
+        Node node = new Node(1L);
+
+        String metric = Node.INTERACTIONS;
+        Double q1 =  1d;
+        Double median = 3d;
+        Double q3 = 5d;
+
+        node.interactions = -1;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1, node.getInteractionsDesc());
+
+        node.interactions = 0;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1, node.getInteractionsDesc());
+
+        node.interactions = 1;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1, node.getInteractionsDesc());
+
+        node.interactions = 2;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q1_MEDIAN, node.getInteractionsDesc());
+
+        node.interactions = 3;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.MEDIAN_Q3, node.getInteractionsDesc());
+
+        node.interactions = 4;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.MEDIAN_Q3, node.getInteractionsDesc());
+
+        node.interactions = 5;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q3, node.getInteractionsDesc());
+
+        node.interactions = 6;
+        node.setMetricDescription(metric, q1, median, q3);
+        assertEquals(Node.Q3, node.getInteractionsDesc());
+    }
+
+
+    @Test
     public void testSetMetricDescBetweenness() {
         Node node = new Node(1L);
 

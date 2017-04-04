@@ -30,6 +30,9 @@ public class GraphTest {
         assertEquals(1L, g.getEdgeMap().get("1_2").getSource().getId().longValue());
         assertEquals(2L, g.getEdgeMap().get("1_2").getDest().getId().longValue());
 
+        assertEquals(2, g.getNodeMap().get(1L).getInteractions().intValue());
+        assertEquals(2, g.getNodeMap().get(2L).getInteractions().intValue());
+
         // one edge already exists
         g.addEdge(1L, 3L);
         assertEquals(3, g.getNodeMap().size());
@@ -39,6 +42,9 @@ public class GraphTest {
         assertEquals(1L, g.getEdgeMap().get("1_3").getSource().getId().longValue());
         assertEquals(3L, g.getEdgeMap().get("1_3").getDest().getId().longValue());
 
+        assertEquals(3, g.getNodeMap().get(1L).getInteractions().intValue());
+        assertEquals(1, g.getNodeMap().get(3L).getInteractions().intValue());
+
         // one edge already exists
         g.addEdge(4L, 3L);
         assertEquals(4, g.getNodeMap().size());
@@ -47,6 +53,9 @@ public class GraphTest {
         assertEquals("4_3", g.getEdgeMap().get("4_3").getId());
         assertEquals(4L, g.getEdgeMap().get("4_3").getSource().getId().longValue());
         assertEquals(3L, g.getEdgeMap().get("4_3").getDest().getId().longValue());
+
+        assertEquals(1, g.getNodeMap().get(4L).getInteractions().intValue());
+        assertEquals(2, g.getNodeMap().get(3L).getInteractions().intValue());
     }
 
 }

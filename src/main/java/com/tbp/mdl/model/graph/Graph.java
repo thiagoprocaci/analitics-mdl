@@ -39,6 +39,8 @@ public class Graph {
         } else {
             edgeMap.put(e.getId(), e);
         }
+        source.increaseInteractions();
+        dest.increaseInteractions();
     }
 
     public Map<Long, Node> getNodeMap() {

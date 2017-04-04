@@ -46,6 +46,7 @@ public class GraphDto {
             n.setMetricDescription(Node.OUTDEGREE, nodeMetrics.getQ1Outdegree(), nodeMetrics.getMedianOutdegree(), nodeMetrics.getQ3Outdegree());
             n.setMetricDescription(Node.DEGREE, nodeMetrics.getQ1Degree(), nodeMetrics.getMedianDegree(), nodeMetrics.getQ3Degree());
             n.setMetricDescription(Node.EIGENVECTOR, nodeMetrics.getQ1Eigenvector(), nodeMetrics.getMedianEigenvector(), nodeMetrics.getQ3Eigenvector());
+            n.setMetricDescription(Node.INTERACTIONS, nodeMetrics.getQ1Interactions(), nodeMetrics.getMedianInteractions(), nodeMetrics.getQ3Interactions());
         }
     }
 

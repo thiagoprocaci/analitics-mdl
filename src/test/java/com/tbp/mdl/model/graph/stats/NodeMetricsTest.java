@@ -21,6 +21,17 @@ public class NodeMetricsTest {
     static final String OUTDEGREE = "outdegree";
     static final String DEGREE = "degree";
     static final String EIGENVECTOR = "eigenvector";
+    static final String INTERACTIONS = "interactions";
+
+    @Test
+    public void testInteractions() {
+        List<Node> nodeList = createNodes(INTERACTIONS);
+        NodeMetrics nodeMetrics = new NodeMetrics(nodeList);
+        assertEquals(1.25, nodeMetrics.getQ1Interactions(), 0.0001);
+        assertEquals(2.5, nodeMetrics.getMedianInteractions(), 0.0001);
+        assertEquals(3.75, nodeMetrics.getQ3Interactions(), 0.0001);
+        assertZeroExcept(INTERACTIONS, nodeMetrics);
+    }
 
     @Test
     public void testEigenvector() {
@@ -160,6 +171,11 @@ public class NodeMetricsTest {
             assertEquals(0d, nodeMetrics.getMedianEigenvector(), 0.0001);
             assertEquals(0d, nodeMetrics.getQ3Eigenvector(), 0.0001);
         }
+        if(!INTERACTIONS.equals(metric)) {
+            assertEquals(0d, nodeMetrics.getQ1Interactions(), 0.0001);
+            assertEquals(0d, nodeMetrics.getMedianInteractions(), 0.0001);
+            assertEquals(0d, nodeMetrics.getQ3Interactions(), 0.0001);
+        }
     }
 
 
@@ -223,6 +239,22 @@ public class NodeMetricsTest {
                 node2.setEigenvector(4d);
                 node3.setEigenvector(6d);
                 node4.setEigenvector(8d);
+                break;
+            case INTERACTIONS:
+                node.increaseInteractions();
+
+                node2.increaseInteractions();
+                node2.increaseInteractions();
+
+                node3.increaseInteractions();
+                node3.increaseInteractions();
+                node3.increaseInteractions();
+
+                node4.increaseInteractions();
+                node4.increaseInteractions();
+                node4.increaseInteractions();
+                node4.increaseInteractions();
+
                 break;
         }
         List<Node> nodeList = Arrays.asList(node, node2, node3, node4);

@@ -34,6 +34,9 @@ public class NodeMetrics {
         double[] eigenvectorList;
         Double q1Eigenvector, medianEigenvector, q3Eigenvector = 0d;
 
+        double[] interactionsList;
+        Double q1Interactions, medianInteractions, q3Interactions = 0d;
+
        public NodeMetrics(Collection<Node> nodes) {
             init(nodes);
             int i = 0;
@@ -64,6 +67,9 @@ public class NodeMetrics {
                 }
                 if(n.getEigenvector() != null) {
                     eigenvectorList[i] = n.getEigenvector();
+                }
+                if(n.getInteractions() != null) {
+                    interactionsList[i] = n.getInteractions();
                 }
                 i++;
             }
@@ -113,6 +119,10 @@ public class NodeMetrics {
            medianEigenvector = percentiles[1];
            q3Eigenvector = percentiles[2];
 
+           percentiles = calcPercentile(interactionsList);
+           q1Interactions = percentiles[0];
+           medianInteractions = percentiles[1];
+           q3Interactions = percentiles[2];
        }
 
 
@@ -126,6 +136,7 @@ public class NodeMetrics {
             outdegreeList = new double[nodes.size()];
             degreeList = new double[nodes.size()];
             eigenvectorList = new double[nodes.size()];
+            interactionsList = new double[nodes.size()];
         }
 
         double[] calcPercentile(double[] values) {
@@ -248,5 +259,15 @@ public class NodeMetrics {
         return q3Eigenvector;
     }
 
+    public Double getQ1Interactions() {
+        return q1Interactions;
+    }
 
+    public Double getMedianInteractions() {
+        return medianInteractions;
+    }
+
+    public Double getQ3Interactions() {
+        return q3Interactions;
+    }
 }
