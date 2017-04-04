@@ -1,13 +1,6 @@
-var app = angular.module("app", ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.pagination', 'ngRoute', 'ui.grid.selection']);
+var app = angular.module("app", ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.pagination',  'ui.grid.selection', 'angular-loading-bar', 'chart.js']);
 
 
-// route
-app.config(function ($routeProvider) {
-
-              $routeProvider
-                  .when('/', {templateUrl: 'index.html'})
-                  .when('/userpage', {templateUrl: 'modules/user/user.html'})
-                  .otherwise({redirectTo: '/'});
 
 
-});
+

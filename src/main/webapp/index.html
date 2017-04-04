@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.min.css">
+<link rel='stylesheet' href='node_modules/angular-loading-bar/build/loading-bar.min.css' />
 
 <script src="node_modules/angular/angular.min.js"></script>
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>
@@ -10,22 +11,29 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="node_modules/angular-bootstrap-npm/dist/angular-bootstrap.min.js"></script>
 <script src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
-<script src="node_modules/angular-route/angular-route.min.js"></script>
-
+<script type='text/javascript' src='node_modules/angular-loading-bar/build/loading-bar.min.js'></script>
+<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 
 <body>
-
     <div ng-app="app" ng-controller="appCtrl">
+
         <div ng-include src="'modules/menu/menu.html'"></div>
         <br><br><br>
-        <div >
+        <div>
             <div>
-                <div class="grid" ui-grid="gridCourseOptions" ui-grid-pagination ui-grid-selection></div>
+                <div class="grid" ui-grid="gridCourseOptions" ui-grid-pagination ui-grid-selection ></div>
             </div>
             <div ng-if="gridStudentOptions.data.length">
-                <div   class="grid" ui-grid="gridStudentOptions" ui-grid-pagination ></div>
+                <div class="grid" ui-grid="gridStudentOptions" ui-grid-pagination ></div>
             </div>
         </div>
+        <br><br><br>
+        <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series" chart-options="options"
+                chart-dataset-override="datasetOverride"  chart-click="onClick">
+        </canvas>
+
     </div>
 </body>
 
@@ -33,6 +41,5 @@
 <script src="modules/main/appCtrl.js"></script>
 <script src="modules/main/courseService.js"></script>
 <script src="modules/main/analysisService.js"></script>
-
 
 </html>
