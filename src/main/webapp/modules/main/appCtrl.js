@@ -1,6 +1,8 @@
 app.controller('appCtrl', function($scope, courseService, analysisService) {
 
-    $scope.gridApi;
+
+    $scope.courseList;
+    $scope.selectedCourseAnalysis;
 
     $scope.gridCourseOptions = {
         paginationPageSizes: [25, 50, 75],
@@ -42,16 +44,17 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
     $scope.findAll = function() {
         courseService.findAll()
             .then(function sucesso(response) {
-                $scope.gridCourseOptions.data = response.data
+                $scope.courseList = response.data
             });
      };
 
     $scope.analysis = function(courseId) {
         analysisService.perform(courseId)
                     .then(function sucesso(response) {
-                        $scope.gridStudentOptions.data = response.data.nodes
+                        $scope.selectedCourseAnalysis = response.data.nodes
                     });
     };
+
     $scope.findAll();
 
      $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];

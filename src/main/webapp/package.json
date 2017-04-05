@@ -11,7 +11,9 @@
     "angular-touch": "1.6.1",
     "angular-ui-grid": "4.0.3",
     "bootstrap": "3.3.7",
-    "jquery": "3.2.1"
+    "font-awesome": "^4.7.0",
+    "jquery": "3.2.1",
+    "metismenu": "^2.7.0"
   },
   "author": "",
   "license": "ISC"
