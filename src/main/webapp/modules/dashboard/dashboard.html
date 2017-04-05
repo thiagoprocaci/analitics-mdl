@@ -11,7 +11,7 @@
                 <div>
                     <div>
                         <label >
-                            Select your course
+                            Select your course:
                             <select ng-model="selectedCourse" ng-change="analysis(selectedCourse.id)"
                                     ng-options="c as c.fullName for c in courseList"></select>
                         </label>
@@ -21,37 +21,22 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-if="helperProvidersAnalysisData.length">
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                Actions
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Action</a>
-                                </li>
-                                <li><a href="#">Another action</a>
-                                </li>
-                                <li><a href="#">Something else here</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Helping Analysis
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                    <canvas id="pie" class="chart chart-pie" chart-colors="helperProvidersAnalysisColours"
+                            chart-data="helperProvidersAnalysisData" chart-labels="helperProvidersAnalysisLabels" chart-options="options">
+                    </canvas>
+                    <!--
                     <canvas id="line" class="chart chart-line" chart-data="data"
                             chart-labels="labels" chart-series="series" chart-options="options"
                             chart-dataset-override="datasetOverride"  chart-click="onClick">
-                    </canvas>
+                    </canvas> -->
                 </div>
                 <!-- /.panel-body -->
             </div>
