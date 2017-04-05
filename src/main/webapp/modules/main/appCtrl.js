@@ -2,10 +2,17 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
 
 
     $scope.courseList;
-    $scope.helperProvidersAnalysis;
-    $scope.helperProvidersAnalysisLabels = ["Providing more helping than the median", "Providing less helping than the median"];
+    $scope.helperProvidersAnalysisLabels = ["Like asking and Like helping",
+                                            "Like asking and don't like helping",
+                                            "Don't like asking and like helping",
+                                            "Don't like asking and don't like helping"];
     $scope.helperProvidersAnalysisData = [];
-    $scope.helperProvidersAnalysisColours = ['#72C02C', '#3498DB'];
+    $scope.chartOptions = {
+        legend: {
+          display: true
+        }
+      };
+
 
     $scope.findAll = function() {
         courseService.findAll()
@@ -17,16 +24,16 @@ app.controller('appCtrl', function($scope, courseService, analysisService) {
     $scope.analysis = function(courseId) {
         analysisService.perform(courseId)
                     .then(function sucesso(response) {
-                        $scope.helperProvidersAnalysis = analysisService.findGoodHelpers(response.data.nodes)
+                        console.log(response.data.nodes.length)
+                        var analysis = analysisService.askerHelperAnalysis(response.data.nodes)
                         $scope.helperProvidersAnalysisData = []
-                        $scope.helperProvidersAnalysisData.push($scope.helperProvidersAnalysis.good)
-                        $scope.helperProvidersAnalysisData.push($scope.helperProvidersAnalysis.bad)
+                        $scope.helperProvidersAnalysisData.push(analysis.goodAskerGoodHelper)
+                        $scope.helperProvidersAnalysisData.push(analysis.goodAskerBadHelper)
+                        $scope.helperProvidersAnalysisData.push(analysis.badAskerGoodHelper)
+                        $scope.helperProvidersAnalysisData.push(analysis.badAskerBadHelper)
                     });
     };
 
     $scope.findAll();
-
-
-
 
 });
