@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">Distinct Interactions</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -25,35 +25,79 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Asker and Helper Distinct Interactions Pattern
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Asker and Helpers Patterns
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                    <i class="fa fa-comment fa-fw"></i> {{nodesCount}} users in total.
                     <canvas id="pie" class="chart chart-pie"
                             chart-data="helperProvidersAnalysisData" chart-labels="helperProvidersAnalysisLabels" chart-options="chartOptions">
                     </canvas>
                 </div>
                 <!-- /.panel-body -->
             </div>
-        </div>
-        <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Isolated People
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Kind of Users
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                        </a>
-
-                    </div>
-                    <!-- /.list-group -->
-                    <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                    <canvas id="doughnut" class="chart chart-doughnut"
+                            chart-data="kingOfUserAnalysisData" chart-labels="kingOfUserAnalysisLabels" chart-options="chartOptions">
+                    </canvas>
                 </div>
                 <!-- /.panel-body -->
             </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="panel panel-default" ng-if="isolatedNodeList.length">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Most Isolated
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body" style="max-height: 300px; overflow-y:scroll;">
+                    <div class="list-group"   >
+                        <a href="#" class="list-group-item"  ng-repeat="n in isolatedNodeList" >
+                            <i class="fa fa-exclamation-triangle fa-fw"></i> {{n.label}}
+                             <span class="text-muted small"><br>
+                                    <em ng-show="n.indegree == 0">Help nobody</em>
+                                    <em ng-show="n.indegree == 1">Help {{n.indegree}} person</em>
+                                    <em ng-show="n.indegree > 1">Help {{n.indegree}} distinct people</em>
+                                    <em ng-show="n.outdegree <= 1"><br>Receive help from {{n.outdegree}} person</em>
+                                    <em ng-show="n.outdegree > 1"><br>Receive help from {{n.outdegree}} distinct people</em>
+                                 <br>
+                             </span>
+                        </a>
+
+
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+
+            <div class="panel panel-default" ng-if="mostConnectedNodeList.length">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Most Connected
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body" style="max-height: 300px; overflow-y:scroll;">
+                    <div class="list-group"   >
+                        <a href="#" class="list-group-item"  ng-repeat="n in mostConnectedNodeList" >
+                            <i class="fa fa-users fa-fw"></i> {{n.label}}
+                         <span class="text-muted small"><br>
+                                <em ng-show="n.indegree == 0">Help nobody</em>
+                                <em ng-show="n.indegree == 1">Help {{n.indegree}} person</em>
+                                <em ng-show="n.indegree > 1">Help {{n.indegree}} distinct people</em>
+                                <em ng-show="n.outdegree <= 1"><br>Receive help from {{n.outdegree}} person</em>
+                                <em ng-show="n.outdegree > 1"><br>Receive help from {{n.outdegree}} distinct people</em>
+                         </span>
+                        </a>
+
+
+                    </div>
+                </div>
+                    <!-- /.panel-body -->
+
+
     </div>

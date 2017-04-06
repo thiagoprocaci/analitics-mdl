@@ -16,7 +16,7 @@ public interface CourseRepository extends CrudRepository<Course, Long> {
             " INNER JOIN mdl_forum forum ON discussion.forum = forum.id " +
             " INNER JOIN mdl_course course ON forum.course = course.id " +
             " group by course.id " +
-            " having  count(post.id) > 1 and sum(post.parent) > 0 " +
+            " having  count(post.id) > 50 and sum(post.parent) > 0 " +
             " order by course.id ) ", nativeQuery = true)
     List<Course> findWithPosts();
 
