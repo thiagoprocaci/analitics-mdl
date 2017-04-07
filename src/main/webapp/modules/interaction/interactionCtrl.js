@@ -4,10 +4,10 @@ app.controller('interactionCtrl', function($scope, courseService, analysisServic
     $scope.courseList;
 
     // interactions chart
-    $scope.helperProvidersAnalysisLabels = ["Like asking and like helping",
-                                            "Like asking and don't like helping",
-                                            "Don't like asking and like helping",
-                                            "Don't like asking and don't like helping"];
+    $scope.helperProvidersAnalysisLabels = ["Ask to several and help several people",
+                                            "Ask to several and help few people",
+                                            "Ask to few and help several people",
+                                       "Ask to few and help few people"];
     $scope.helperProvidersAnalysisData = [];
     $scope.chartOptions = {
         legend: {
@@ -15,14 +15,15 @@ app.controller('interactionCtrl', function($scope, courseService, analysisServic
         }
       };
 
-
     $scope.nodesCount = 0;
+    $scope.edgeCount = 0;
     $scope.isolatedNodeList = []
     $scope.mostConnectedNodeList = []
 
     // kind of users chart
-     $scope.kingOfUserAnalysisLabels = ["Asker", "Helper", "Bridging", "Information Spreader"];
+    $scope.kingOfUserAnalysisLabels = ["Asker", "Helper", "Bridging", "Information Spreader"];
     $scope.kingOfUserAnalysisData = [];
+
 
     $scope.findAll = function() {
         courseService.findAll()
@@ -34,7 +35,7 @@ app.controller('interactionCtrl', function($scope, courseService, analysisServic
     $scope.analysis = function(courseId) {
         analysisService.perform(courseId)
                     .then(function sucesso(response) {
-
+                        $scope.edgeCount = response.data.edges.length
                         var analysis = analysisService.askerHelperAnalysis(response.data.nodes)
                         $scope.helperProvidersAnalysisData = []
                         $scope.helperProvidersAnalysisData.push(analysis.goodAskerGoodHelper)

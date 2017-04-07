@@ -5,7 +5,6 @@ app.service('analysisService', function($http) {
          return promise;
     };
 
-
     this.kindOfUsersAnalysis = function (nodeList) {
          var askerCount = 0;
          var helperCount = 0;
