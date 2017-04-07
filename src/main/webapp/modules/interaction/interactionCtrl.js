@@ -1,4 +1,4 @@
-app.controller('appCtrl', function($scope, courseService, analysisService) {
+app.controller('interactionCtrl', function($scope, courseService, analysisService) {
 
 
     $scope.courseList;
