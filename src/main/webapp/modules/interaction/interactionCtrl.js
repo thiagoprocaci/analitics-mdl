@@ -1,4 +1,4 @@
-app.controller('interactionCtrl', function($scope, courseService, analysisService) {
+app.controller('interactionCtrl', function($scope, courseService, analysisService, ModalService) {
 
 
     $scope.courseList;
@@ -19,6 +19,9 @@ app.controller('interactionCtrl', function($scope, courseService, analysisServic
     $scope.edgeCount = 0;
     $scope.isolatedNodeList = []
     $scope.mostConnectedNodeList = []
+    $scope.mostActiveNodeList = []
+    $scope.lessActiveNodeList = []
+
 
     // kind of users chart
     $scope.kingOfUserAnalysisLabels = ["Asker", "Helper", "Bridging", "Information Spreader"];
@@ -54,7 +57,26 @@ app.controller('interactionCtrl', function($scope, courseService, analysisServic
                         $scope.kingOfUserAnalysisData.push(kingOfUserAnalysis.bridgeCount);
                         $scope.kingOfUserAnalysisData.push(kingOfUserAnalysis.infSpreaderCount);
 
+                        $scope.mostActiveNodeList = analysisService.findMostActive(response.data.nodes);
+                        $scope.lessActiveNodeList = analysisService.findLessActive(response.data.nodes);
+
                     });
+    };
+
+    $scope.userDetails = function(n) {
+
+            ModalService.showModal({
+              templateUrl: "modules/user/userModal.html",
+              controller: "userCtrl",
+              inputs: {
+                user: n
+              }
+            }).then(function(modal) {
+              modal.element.modal();
+              modal.close.then(function(result) {
+                //$scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+              });
+            });
     };
 
     $scope.findAll();

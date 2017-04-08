@@ -30,13 +30,40 @@ app.service('analysisService', function($http) {
          return {"askerCount" : askerCount, "helperCount" : helperCount, "bridgeCount" : bridgeCount, "infSpreaderCount" : infSpreaderCount};
     };
 
+    this.findMostActive = function (nodeList) {
+             var mostActiveNodeList = []
+             if(nodeList) {
+                 for (var i = 0; i < nodeList.length; i++){
+                       var node = nodeList[i];
+                       if(node.interactionsDesc === "Excellent") {
+                            mostActiveNodeList.push(node)
+                       }
+                 }
+             }
+             return mostActiveNodeList;
+    };
+
+    this.findLessActive = function (nodeList) {
+             var lessActiveNodeList = []
+             if(nodeList) {
+                 for (var i = 0; i < nodeList.length; i++){
+                       var node = nodeList[i];
+                       if(node.interactionsDesc === "Bad") {
+                            lessActiveNodeList.push(node)
+                       }
+                 }
+             }
+             return lessActiveNodeList;
+        };
+
+
     this.findIsolated = function (nodeList) {
          var isolatedNodeList = []
          if(nodeList) {
              for (var i = 0; i < nodeList.length; i++){
                    var node = nodeList[i];
                    if(node.degreeDesc === "Bad") {
-                        isolatedNodeList.push({ "id" : node.id, "label" : node.label, "degree" : node.degree, "indegree" : node.indegree, "outdegree" : node.outdegree})
+                        isolatedNodeList.push(node)
                    }
              }
          }
@@ -49,7 +76,7 @@ app.service('analysisService', function($http) {
                  for (var i = 0; i < nodeList.length; i++){
                        var node = nodeList[i];
                        if(node.degreeDesc === "Excellent") {
-                            mostConnectedNodeList.push({ "id" : node.id, "label" : node.label, "degree" : node.degree, "indegree" : node.indegree, "outdegree" : node.outdegree})
+                            mostConnectedNodeList.push(node)
                        }
                  }
              }

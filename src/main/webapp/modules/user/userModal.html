@@ -1,0 +1,182 @@
+<div class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>Here's a more complex modal, it contains a form, data is passed to the controller
+                    and data is returned from the modal.</p>
+                <div class="progress" >
+                    <div ng-if="user.interactionsDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Participation Level
+                    </div>
+                    <div ng-if="user.interactionsDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Participation Level
+                    </div>
+                    <div ng-if="user.interactionsDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Participation Level
+                    </div>
+                    <div ng-if="user.interactionsDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Participation Level
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.degreeDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Connectivity Level
+                    </div>
+                    <div ng-if="user.degreeDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Connectivity Level
+                    </div>
+                    <div ng-if="user.degreeDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Connectivity Level
+                    </div>
+                    <div ng-if="user.degreeDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Connectivity Level
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.betweennessDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Bridging Level
+                    </div>
+                    <div ng-if="user.betweennessDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Bridging Level
+                    </div>
+                    <div ng-if="user.betweennessDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Bridging Level
+                    </div>
+                    <div ng-if="user.betweennessDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Bridging Level
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.indegreeDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Help many people
+                    </div>
+                    <div ng-if="user.indegreeDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Help many people
+                    </div>
+                    <div ng-if="user.indegreeDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Help many people
+                    </div>
+                    <div ng-if="user.indegreeDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Help many people
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.outdegreeDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Helped by many people
+                    </div>
+                    <div ng-if="user.outdegreeDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Helped by many people
+                    </div>
+                    <div ng-if="user.outdegreeDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Helped by many people
+                    </div>
+                    <div ng-if="user.outdegreeDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Helped by many people
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.closenessDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Information Spreader
+                    </div>
+                    <div ng-if="user.closenessDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Information Spreader
+                    </div>
+                    <div ng-if="user.closenessDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Information Spreader
+                    </div>
+                    <div ng-if="user.closenessDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Information Spreader
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.pageRankDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        General Relevance
+                    </div>
+                    <div ng-if="user.pageRankDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        General Relevance
+                    </div>
+                    <div ng-if="user.pageRankDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        General Relevance
+                    </div>
+                    <div ng-if="user.pageRankDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        General Relevance
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.eigenvectorDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        General Relevance 2
+                    </div>
+                    <div ng-if="user.eigenvectorDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        General Relevance 2
+                    </div>
+                    <div ng-if="user.eigenvectorDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        General Relevance 2
+                    </div>
+                    <div ng-if="user.eigenvectorDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        General Relevance 2
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div ng-if="user.eccentricityDesc === 'Excellent'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:95%" >
+                        Eccentricity
+                    </div>
+                    <div ng-if="user.eccentricityDesc === 'Good'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:75%" >
+                        Eccentricity
+                    </div>
+                    <div ng-if="user.eccentricityDesc === 'Ok'" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%" >
+                        Eccentricity
+                    </div>
+                    <div ng-if="user.eccentricityDesc === 'Bad'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                         aria-valuemin="0" aria-valuemax="100" style="width:15%" >
+                        Eccentricity
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" ng-click="cancel()" class="btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
