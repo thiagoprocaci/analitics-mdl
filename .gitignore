@@ -4,7 +4,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
@@ -14,4 +14,4 @@ hs_err_pid*
 target/
 *.iml
 .idea/
-node_modules/
+#node_modules/
