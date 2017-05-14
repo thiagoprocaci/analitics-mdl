@@ -3,7 +3,8 @@ package com.tbp.mdl.facade;
 
 import com.tbp.mdl.model.graph.Graph;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class GephiFacadeTest {
 

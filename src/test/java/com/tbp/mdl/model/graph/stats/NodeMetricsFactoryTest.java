@@ -1,12 +1,12 @@
 package com.tbp.mdl.model.graph.stats;
 
+import com.tbp.mdl.model.graph.Node;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import com.tbp.mdl.model.graph.Node;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 
 public class NodeMetricsFactoryTest {

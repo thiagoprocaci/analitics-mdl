@@ -1,7 +1,6 @@
 package com.tbp.mdl.controller;
 
 import com.tbp.mdl.model.moodle.Forum;
-
 import com.tbp.mdl.repository.ForumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

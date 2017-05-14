@@ -4,7 +4,6 @@ import com.tbp.mdl.model.graph.stats.NodeMetrics;
 import com.tbp.mdl.model.graph.stats.NodeMetricsFactory;
 import com.tbp.mdl.model.moodle.Course;
 
-
 import java.util.Collection;
 
 public class GraphDto {

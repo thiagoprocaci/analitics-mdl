@@ -3,6 +3,7 @@ package com.tbp.mdl.model.graph.stats;
 
 import com.tbp.mdl.model.graph.Node;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
 import java.util.Collection;
 
 public class NodeMetrics {

@@ -3,6 +3,7 @@ package com.tbp.mdl.model.moodle;
 import com.tbp.mdl.model.support.Identifiable;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "mdl_forum_posts")
@@ -17,6 +18,11 @@ public class Post extends Identifiable<Long> {
     @ManyToOne
     @JoinColumn(name = "userid", updatable=false, insertable = false)
     User user;
+    @Column(name = "creation", updatable=false, insertable = false)
+    Date creation;
+    @Lob
+    @Column(name = "message", updatable=false, insertable = false)
+    String message;
 
     public Long getId() {
         return id;

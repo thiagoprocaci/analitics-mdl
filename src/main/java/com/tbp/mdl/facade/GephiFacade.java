@@ -2,9 +2,7 @@ package com.tbp.mdl.facade;
 
 
 import org.gephi.graph.api.*;
-
 import org.gephi.project.api.ProjectController;
-
 import org.gephi.statistics.plugin.Degree;
 import org.gephi.statistics.plugin.EigenvectorCentrality;
 import org.gephi.statistics.plugin.GraphDistance;

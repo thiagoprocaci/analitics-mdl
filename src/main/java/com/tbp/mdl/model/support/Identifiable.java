@@ -2,7 +2,6 @@ package com.tbp.mdl.model.support;
 
 
 public abstract class Identifiable<ID> {
-
     public abstract ID getId();
 
     @Override

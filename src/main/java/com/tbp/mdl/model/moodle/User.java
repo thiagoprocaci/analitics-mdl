@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
 @Table(name = "mdl_user")
@@ -19,6 +20,8 @@ public class User extends Identifiable<Long> {
     String firstName;
     @Column(name = "lastname", updatable=false, insertable = false)
     String lastName;
+    @Column(name = "creation", updatable=false, insertable = false)
+    Date creation;
 
     @Override
     public Long getId() {
