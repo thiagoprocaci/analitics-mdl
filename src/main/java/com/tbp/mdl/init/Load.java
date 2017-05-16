@@ -17,7 +17,7 @@ public class Load {
     public Load(DataSource dataSource) throws SQLException {
        ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
       //  rdp.addScript(new ClassPathResource("data-h2-normal.sql"));
-        rdp.addScript(new ClassPathResource("data-h2-obsfucated.sql"));
+        rdp.addScript(new ClassPathResource("data-h2-obfuscated.sql"));
         Connection connection = dataSource.getConnection();
         rdp.populate(connection);
         connection.close();
