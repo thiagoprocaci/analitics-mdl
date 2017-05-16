@@ -11,10 +11,10 @@ public interface PostRepository extends CrudRepository<Post, Long> {
 
     List<Post> findByDiscussionId(Long discussionId);
 
-    @Query(value = "select post.* from mdl_forum_posts post " +
-            "inner join mdl_forum_discussions discussion on post.discussion = discussion.id " +
-            "inner join mdl_forum forum on discussion.forum = forum.id " +
-            "inner join mdl_course course on forum.course = course.id " +
+    @Query(value = "select post.* from post post " +
+            "inner join discussion discussion on post.discussionid = discussion.id " +
+            "inner join forum forum on discussion.forumid = forum.id " +
+            "inner join course course on forum.courseid = course.id " +
             "where course.id = ?1", nativeQuery = true)
     List<Post> findByCourseId(Long courseId);
 

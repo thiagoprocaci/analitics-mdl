@@ -9,14 +9,14 @@ import java.util.List;
 
 public interface CourseRepository extends CrudRepository<Course, Long> {
 
-    @Query(value = "select c.* from mdl_course c where c.id in ( " +
+    @Query(value = "select c.* from course c where c.id in ( " +
             " SELECT course.id  " +
-            " FROM mdl_forum_posts post " +
-            " INNER JOIN mdl_forum_discussions discussion ON post.discussion = discussion.id " +
-            " INNER JOIN mdl_forum forum ON discussion.forum = forum.id " +
-            " INNER JOIN mdl_course course ON forum.course = course.id " +
+            " FROM post post " +
+            " INNER JOIN discussion discussion ON post.discussionid = discussion.id " +
+            " INNER JOIN forum forum ON discussion.forumid = forum.id " +
+            " INNER JOIN course course ON forum.courseid = course.id " +
             " group by course.id " +
-            " having  count(post.id) > 50 and sum(post.parent) > 0 " +
+            " having  count(post.id) > 50 and sum(post.parentpostid) > 0 " +
             " order by course.id ) ", nativeQuery = true)
     List<Course> findWithPosts();
 

@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mdl_forum_discussions")
+@Table(name = "discussion")
 public class Discussion extends Identifiable<Long> {
     @Id
     @Column(name = "id", updatable=false, insertable = false)
     Long id;
     @Column(name = "name", updatable=false, insertable = false)
     String name;
-    @Column(name = "forum", updatable=false, insertable = false)
+    @Column(name = "forumid", updatable=false, insertable = false)
     Long forumId;
     @Column(name = "userid", updatable=false, insertable = false)
     Long userId;

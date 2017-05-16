@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mdl_course")
+@Table(name = "course")
 public class Course extends Identifiable<Long> {
 
     @Id

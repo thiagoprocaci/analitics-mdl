@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = "mdl_user")
+@Table(name = "users")
 public class User extends Identifiable<Long> {
     @Id
     @Column(name = "id", updatable=false, insertable = false)

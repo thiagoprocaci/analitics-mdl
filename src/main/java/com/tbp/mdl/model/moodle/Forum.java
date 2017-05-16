@@ -9,18 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mdl_forum")
+@Table(name = "forum")
 public class Forum extends Identifiable<Long> {
 
     @Id
     @Column(name = "id", updatable=false, insertable = false)
     Long id;
-    @Column(name = "course", updatable=false, insertable = false)
+    @Column(name = "courseid", updatable=false, insertable = false)
     Long courseId;
     @Column(name = "name", updatable=false, insertable = false)
     String name;
-    @Column(name = "type", updatable=false, insertable = false)
-    String type;
+
 
     public Long getId() {
         return id;
@@ -34,7 +33,5 @@ public class Forum extends Identifiable<Long> {
         return name;
     }
 
-    public String getType() {
-        return type;
-    }
+
 }

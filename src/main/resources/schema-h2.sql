@@ -1,37 +1,43 @@
-CREATE TABLE mdl_user (
+CREATE TABLE users (
    id INT NOT NULL,
-   username VARCHAR(200),
-   firstname VARCHAR(200) ,
-   lastname VARCHAR(200),
+   username VARCHAR(400),
+   firstname VARCHAR(400) ,
+   lastname VARCHAR(400),
    creation DATE
 );
 
-CREATE TABLE mdl_forum_posts (
+CREATE TABLE post (
    id INT NOT NULL,
-   parent INT,
-   discussion INT,
+   parentpostid INT,
+   discussionid INT,
    userid INT ,
    creation DATE,
    message CLOB
 );
 
-CREATE TABLE mdl_forum (
+CREATE TABLE forum (
    id INT NOT NULL,
-   course INT,
-   name VARCHAR(200),
-   type VARCHAR(200)
+   courseid INT,
+   name VARCHAR(400)
 );
 
-CREATE TABLE mdl_forum_discussions (
+CREATE TABLE discussion (
    id INT NOT NULL,
-   name VARCHAR(200),
-   forum INT,
-   userId INT
+   name VARCHAR(400),
+   forumid INT,
+   userid INT
 );
 
-CREATE TABLE mdl_course (
+CREATE TABLE course (
    id INT NOT NULL,
-   shortname VARCHAR(200),
-   fullname VARCHAR(200)
+   shortname VARCHAR(400),
+   fullname VARCHAR(400)
+);
+
+CREATE TABLE course_grade (
+    id INT NOT NULL,
+    userid INT NOT NULL,
+    courseid INT NOT NULL,
+    grade DOUBLE
 );
 commit;

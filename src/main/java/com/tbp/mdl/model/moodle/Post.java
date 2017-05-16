@@ -6,14 +6,14 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "mdl_forum_posts")
+@Table(name = "post")
 public class Post extends Identifiable<Long> {
     @Id
     @Column(name = "id", updatable=false, insertable = false)
     Long id;
-    @Column(name = "parent", updatable=false, insertable = false)
+    @Column(name = "parentpostid", updatable=false, insertable = false)
     Long parentPost;
-    @Column(name = "discussion", updatable=false, insertable = false)
+    @Column(name = "discussionid", updatable=false, insertable = false)
     Long discussionId;
     @ManyToOne
     @JoinColumn(name = "userid", updatable=false, insertable = false)
