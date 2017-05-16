@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class Load {
 
 
-@Autowired
+    @Autowired
     public Load(DataSource dataSource) throws SQLException {
        ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
       //  rdp.addScript(new ClassPathResource("data-h2-normal.sql"));

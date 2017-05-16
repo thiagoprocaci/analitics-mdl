@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "course")
 public class Course extends Identifiable<Long> {
-
+//TODO remove moodle package
     @Id
     @Column(name = "id", updatable=false, insertable = false)
     Long id;

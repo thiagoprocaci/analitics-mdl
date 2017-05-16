@@ -14,6 +14,6 @@ hs_err_pid*
 target/
 *.iml
 .idea/
-node_modules/
+#node_modules/
 *data-h2-normal.sql
 *queries.sql
